@@ -1,0 +1,526 @@
+/* ==========================
+   VARIÁVEIS
+========================== */
+
+:root {
+    --fundo:       #F7F3EA;
+    --primaria:    #2F4F3E;
+    --secundaria:  #8B5E3C;
+    --destaque:    #C9A227;
+    --texto:       #252525;
+    --card:        #FFFFFF;
+    --borda:       #D6CBAF;
+    --sombra:      rgba(47, 79, 62, 0.12);
+    --placeholder: #9A8E7A;
+}
+
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body {
+    min-height: 100vh;
+    background-color: var(--fundo);
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+    width: 100%;
+    background: var(--primaria);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+}
+
+.navbar h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--fundo);
+}
+
+.navbar h1 span {
+    color: var(--destaque);
+    font-style: italic;
+}
+
+.navbar p {
+    display: none;
+}
+
+/* ==========================
+   SUBTÍTULO ABAIXO DA NAVBAR
+========================== */
+
+.subtitulo {
+    width: 100%;
+    background: var(--secundaria);
+    text-align: center;
+    padding: 8px 20px;
+    color: var(--fundo);
+    font-size: 14px;
+    letter-spacing: 1px;
+    opacity: 0.92;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 36px 20px 48px;
+}
+
+/* ==========================
+   CABEÇALHO (oculto — virou navbar)
+========================== */
+
+.cabecalho {
+    display: none;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 18px var(--sombra);
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primaria);
+    border-radius: 6px 0 0 6px;
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primaria);
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--borda);
+    padding-bottom: 10px;
+}
+
+/* ==========================
+   FORMULÁRIOS
+========================== */
+
+#formulario-add,
+#form-busca {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .6px;
+    color: var(--primaria);
+    text-transform: uppercase;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+.inpt,
+#busca {
+    width: 100%;
+    padding: 10px 4px;
+    background: transparent;
+    color: var(--texto);
+    border: none;
+    border-bottom: 2px solid var(--borda);
+    outline: none;
+    font-size: 16px;
+    font-family: inherit;
+    transition: .3s;
+}
+
+.inpt:focus,
+#busca:focus {
+    border-bottom: 2px solid var(--destaque);
+    box-shadow: 0 6px 12px rgba(201,162,39,.1);
+}
+
+::placeholder {
+    color: var(--placeholder);
+    font-style: italic;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    appearance: textfield;
+}
+
+/* ==========================
+   BOTÕES
+========================== */
+
+.botao {
+    margin-top: 8px;
+    height: 48px;
+    border: none;
+    border-radius: 4px;
+    background: var(--destaque);
+    color: #1a1a1a;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 3px 8px rgba(201,162,39,.3);
+}
+
+.botao:hover {
+    background: #b8911f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(201,162,39,.35);
+}
+
+.botao:active {
+    transform: scale(.97);
+}
+
+/* ==========================
+   LISTA DE LIVROS
+========================== */
+
+#lista-livros {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ==========================
+   LIVRO CARD (tabela)
+========================== */
+
+.livro-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--borda);
+    transition: background .2s;
+}
+
+.livro-card:first-child {
+    border-top: 1px solid var(--borda);
+}
+
+.livro-card:hover {
+    background: #f0ece0;
+}
+
+.livro-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.livro-titulo {
+    color: var(--primaria);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.livro-autor {
+    color: var(--secundaria);
+    font-size: 14px;
+    font-style: italic;
+}
+
+.livro-id {
+    color: var(--placeholder);
+    font-size: 12px;
+    letter-spacing: .5px;
+    margin-top: 2px;
+}
+
+.botao-remover {
+    background: transparent;
+    border: 1px solid var(--secundaria);
+    color: var(--secundaria);
+    border-radius: 4px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    letter-spacing: .5px;
+    transition: .25s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.botao-remover:hover {
+    background: var(--secundaria);
+    color: white;
+}
+
+.vazio {
+    color: var(--placeholder);
+    text-align: center;
+    padding: 20px 0;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* ==========================
+   ID TOGGLE
+========================== */
+
+.id-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.id-toggle-label {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .6px;
+    color: var(--primaria);
+    text-transform: uppercase;
+}
+
+.id-preview {
+    color: var(--secundaria);
+    font-size: 13px;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* Switch */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--borda);
+    border-radius: 28px;
+    transition: .3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    border-radius: 50%;
+    transition: .3s;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+
+.switch input:checked + .slider {
+    background: var(--primaria);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+    background: var(--destaque);
+}
+
+#campo-id {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+
+.rodape {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.rodape p {
+    color: var(--placeholder);
+    font-size: 13px;
+    letter-spacing: .5px;
+}
+
+/* ==========================
+   BOTÃO GITHUB 3D
+========================== */
+
+.button-icon {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 48px;
+    text-decoration: none;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+.button-icon:hover {
+    box-shadow: 0 4px 16px rgba(47,79,62,.2);
+}
+
+.icon {
+    background: var(--fundo);
+    width: 48px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--borda);
+}
+
+.icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.icon svg path {
+    fill: var(--primaria);
+}
+
+.cube {
+    position: relative;
+    width: 160px;
+    height: 100%;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    transition: transform .45s ease;
+}
+
+.button-icon:hover .cube {
+    transform: rotateX(90deg);
+}
+
+.side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    backface-visibility: hidden;
+}
+
+.front {
+    background: var(--primaria);
+    color: var(--fundo);
+    transform: translateZ(24px);
+}
+
+.top {
+    background: var(--destaque);
+    color: #1a1a1a;
+    transform: rotateX(-90deg) translateZ(24px);
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    .navbar h1 {
+        font-size: 24px;
+        letter-spacing: 4px;
+    }
+
+    .card {
+        padding: 20px 18px;
+    }
+
+    .cube {
+        width: 130px;
+    }
+
+}
+
+.livro-data {
+    color: var(--placeholder);
+    font-size: 11px;
+    font-style: italic;
+    margin-top: 2px;
+}
